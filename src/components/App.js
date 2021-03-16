@@ -4,7 +4,7 @@ import VideoSource from "./VideoSource";
 function App() { 
   return <div className= "app-container">
   <VideoSource /> 
-  <VideoCard />
+  {/* <VideoCard /> */}
   </div>;
 }
 

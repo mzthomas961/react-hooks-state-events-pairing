@@ -1,5 +1,4 @@
-const video = [
-  {
+const video = {
   id: 1,
   title: "React Today and Tomorrow and 90% Cleaner React With Hooks",
   embedUrl: "https://www.youtube.com/embed/dpw9EHDh2bM",
@@ -19,7 +18,6 @@ const video = [
       comment: "What a great tutorial!",
     },
   ],
-}
-];
+};
 
 export { video };

@@ -4,17 +4,23 @@ import React, { useState } from "react";
 function VideoCard({ title, views, embedUrl, createdAt, upvotes, downvotes, comments}) {
     const [upvotesObj, setUpvotes] = useState(upvotes);
     const [downvotesObj, setDownvotes] = useState(downvotes);
+    const [isHidden, setIsHidden] = useState(false);
+    console.log(comments)
 
+    const commentItems = comments.map((comment) => {
+        return <Comments user={comment.user} comment={comment.comment}/>
+    })
 
     function handleUpvotesClick(){
         setUpvotes(upvotesObj+1);
     }
-    function handleDownvotesClick(){
+    function handleDownvotesClick() {
         setDownvotes(downvotesObj-1);
     }
-    // function handleCommentClick(){
-    //     comments ?
-    // }
+
+    function handleCommentClick() {
+       setIsHidden(!isHidden);
+    }
 
     return (
         <div className="card">
@@ -34,9 +40,8 @@ function VideoCard({ title, views, embedUrl, createdAt, upvotes, downvotes, comm
             <button className="downvotes" onClick={handleDownvotesClick}>
             👎{downvotesObj}
         </button>
-        {/* <button className="comments" onClick={handleCommentClick}>
-            Comment
-        </button> */}
+        <button onClick={handleCommentClick}>{isHidden ? "show" : "hide"} Comment</button>
+        {isHidden ? null : commentItems}
         </div>
 
     );
